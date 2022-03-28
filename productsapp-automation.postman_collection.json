@@ -78,8 +78,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44387/api/products",
-					"protocol": "http",
+					"raw": "https://localhost:44387/api/products",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -94,12 +94,50 @@
 			"response": []
 		},
 		{
-			"name": "Get Product by Id",
+			"name": "Get Products By ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"response to have an Id\", function(){\r",
+							" pm.expect(jsonData).to.have.property(\"Id\");\r",
+							"})\r",
+							"\r",
+							"\r",
+							"pm.test(\"response to have an Name\", function(){\r",
+							" pm.expect(jsonData).to.have.property(\"Name\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response to have an Category\", function(){\r",
+							" pm.expect(jsonData).to.have.property(\"Category\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response to have an Price\", function(){\r",
+							" pm.expect(jsonData).to.have.property(\"Price\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response to be 200 OK\", function(){\r",
+							" pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response time less than 1000MS\", function(){\r",
+							" pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44387/api/products",
+					"raw": "http://localhost:44387/api/products/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -107,10 +145,10 @@
 					"port": "44387",
 					"path": [
 						"api",
-						"products"
+						"products",
+						"1"
 					]
-				},
-				"description": "var jsonData = JSON.parse(responseBody);\n\nvar jsonData = jsonDate\\[0\\].Id;"
+				}
 			},
 			"response": []
 		}
