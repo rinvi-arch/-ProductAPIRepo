@@ -78,8 +78,8 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44387/api/products",
-					"protocol": "http",
+					"raw": "https://localhost:44387/api/products",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -137,7 +137,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:44387/api/products/1",
+					"raw": "http://localhost:44387/api/products/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -146,7 +146,7 @@
 					"path": [
 						"api",
 						"products",
-						"1"
+						"2"
 					]
 				}
 			},
